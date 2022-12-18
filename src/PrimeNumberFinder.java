@@ -5,7 +5,7 @@ import java.util.List;
 public class PrimeNumberFinder {
     public static void main(String[] args) {
 
-        System.out.println(findPrime(1, 1000));
+        System.out.println(findPrime(1, 10));
 
     }
     static List findPrime(int start, int end){
@@ -13,8 +13,8 @@ public class PrimeNumberFinder {
 
         while(start < end){
 
-            for(int i = 1; i <= start; i++){
-                if(start % i == 0 && i != 1 && i != start){
+            for(int i = 2; i <= start; i++){
+                if(start % i == 0 && i != start){
                     break;
                 }else if(i == start){
                     prime.add(start);
