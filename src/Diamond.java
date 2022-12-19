@@ -1,21 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Diamond {
     public static void main(String[] args) {
-        System.out.println(renderDiamond('D'));
+        System.out.println(renderDiamond('z'));
     }
 
     static String renderDiamond(char a) {
+        List<String> stringList = new ArrayList<>();
 
+        //Schleife für den durchlauf.
         for (char b = 'A'; b <= a; b++) {
+            //wenn b gleich a ist soll er leerzeichen ausgeben wie anzahl der
+            // schritte vorhanden sind und gibt A aus.
             if (b == 'A') {
                 for (char d = b; d < a; d++) {
                     System.out.print(" ");
                 }
                 System.out.println(b);
-            } else if (b > 'A') {
+            //Wenn b größer als A dann gib leerzeichen aus und am ende b
+            } else {
                 for (char d = b; d < a; d++) {
                     System.out.print(" ");
                 }
                 System.out.print(b);
+                // FÜr die eine Hälfte der Leerzeichen sobald b größer als B ist.
+                // Zählt Rückwärts
                 if (b > 'B') {
                     char c = b;
                     while (c > 'B') {
@@ -23,6 +33,7 @@ public class Diamond {
                         c--;
                     }
                 }
+                //Für die andere Hälfte der leerzeichen zählt vorwärst
                 char c = b;
                 while (c > 'A') {
                     System.out.print(" ");
@@ -33,10 +44,9 @@ public class Diamond {
                 }
             }
 
-        }
+        }// die untere hälfte des Diamanten
         for (char b = a; b >= 'A'; b--) {
-            if (b == a) {
-            } else if (b < a) {
+            if (b < a) {
                 char c = b;
                 while (c <= a) {
                     if (c == a) {
@@ -47,15 +57,14 @@ public class Diamond {
                     c++;
                 }
                 if (b > 'B') {
-                    char e = 'A';
-                    while (e < b) {
+                    char e = b;
+                    while (e > 'B') {
                         System.out.print(" ");
-                        e++;
+                        e--;
                     }
-                    System.out.println(b);
-                }else{
+                }
                     char d = b;
-                    while (d >= 'A') {
+                    while (d > 'A') {
                         System.out.print(" ");
                         d--;
 
@@ -68,8 +77,7 @@ public class Diamond {
 
 
             }
-
-        }return "";
+            return "";
     }
 }
 
