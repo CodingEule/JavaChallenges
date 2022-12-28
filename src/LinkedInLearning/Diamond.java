@@ -1,9 +1,11 @@
+package LinkedInLearning;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Diamond {
     public static void main(String[] args) {
-        System.out.println(renderDiamond('z'));
+        System.out.println(renderDiamond('D'));
     }
 
     static String renderDiamond(char a) {
