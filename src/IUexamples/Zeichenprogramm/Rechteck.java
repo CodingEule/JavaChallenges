@@ -23,4 +23,15 @@ public class Rechteck {
         return "Breite: " + this.breite + " Hoehe: " + this.hoehe;
     }
 
+    public boolean equals(Object obj){
+        if(this == obj) return true;
+        if(obj instanceof Rechteck){
+            Rechteck rechteck = (Rechteck) obj;
+            return breite == rechteck.breite
+                    && hoehe == rechteck.hoehe
+                    && punkt.equals(rechteck.punkt);
+        } else {
+            return super.equals(obj);
+        }
+    }
 }
