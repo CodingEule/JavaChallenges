@@ -18,4 +18,9 @@ public class Punkt {
             return super.equals(obj);
         }
     }
+    @Override
+    public String toString(){
+        return "Koordinaten X: " + this.x + "\n" +
+                "Koordinate Y: " + this.y;
+    }
 }

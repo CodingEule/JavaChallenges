@@ -6,5 +6,8 @@ public class Zeichenprogramm {
         Rechteck rechteck1 = new Rechteck(punkt1, 15, 22);
         rechteck1.berechneFlaeche();
         System.out.println(rechteck1.toString());
+
+        System.out.println(rechteck1.hashCode() == rechteck1.hashCode());
+        System.out.println(punkt1);
     }
 }
