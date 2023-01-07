@@ -1,6 +1,6 @@
 package IUexamples.Vergleichen;
 
-public class Kunde {
+public class Kunde implements Comparable<Kunde>{
 
     private int kundennummer;
     private String vorname;
@@ -15,7 +15,7 @@ public class Kunde {
         this.geschlecht = geschlecht;
         this.geburtsdatum = geburtsdatum;
     }
-
+    @Override
     public boolean equals(Object obj){
         if(this == obj) return true;
         if(obj instanceof Kunde){
@@ -26,5 +26,21 @@ public class Kunde {
         } else {
             return super.equals(obj);
         }
+    }
+    @Override
+    public int hashCode(){
+        String s = vorname + name;
+        return s.hashCode();
+    }
+    @Override
+    public int compareTo(Kunde kunde){
+        if(name.equals(kunde.name)){
+            if(vorname.equals(kunde.vorname)){
+                return 0;
+            }else {
+                return -1;
+            }
+        }
+        return -1;
     }
 }

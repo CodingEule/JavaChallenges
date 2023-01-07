@@ -1,6 +1,6 @@
 package IUexamples.Zeichenprogramm;
 
-public class Rechteck {
+public class Rechteck implements Comparable<Rechteck>{
 
     private Punkt punkt;
     private int breite;
@@ -11,15 +11,12 @@ public class Rechteck {
         this.breite = breite;
         this.hoehe = hoehe;
     }
-
-    public int berechneFlaeche() {
-        return breite * hoehe;
-    }
-
     public Punkt getPunkt() {
         return punkt;
     }
-
+    public int berechneFlaeche() {
+        return breite * hoehe;
+    }
     @Override
     public String toString() {
         return "Breite: " + this.breite + " Hoehe: " + this.hoehe;
@@ -36,7 +33,6 @@ public class Rechteck {
             return super.equals(obj);
         }
     }
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -45,5 +41,15 @@ public class Rechteck {
         result = prime * result + hoehe;
         result = prime * result + ((punkt == null) ? 0 : punkt.hashCode());
         return result;
+    }
+ /* Der Rückgabewert muss:
+  0 wenn die Objekte gleich sind
+  negativ wenn das Objekt auf dem die Methode kleiner ist
+  Positiv wenn das Objekt auf dem die Methode größer ist
+  */
+    @Override
+    public int compareTo(Rechteck rechteck){
+
+        return berechneFlaeche() - rechteck.berechneFlaeche();
     }
 }
