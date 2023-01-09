@@ -1,6 +1,6 @@
 package IUexamples.Vergleichen;
 
-public class Kunde implements Comparable<Kunde>{
+public class Kunde implements Comparable<Kunde>, Cloneable{
 
     private int kundennummer;
     private String vorname;
@@ -42,5 +42,16 @@ public class Kunde implements Comparable<Kunde>{
             }
         }
         return -1;
+    }
+    @Override
+    public Kunde clone(){
+        try {
+            Kunde k = (Kunde) super.clone();
+            return k;
+        }
+        catch (CloneNotSupportedException ex){
+            System.out.println("Das hätte nich passieren dürfen!");
+            return null;
+        }
     }
 }
